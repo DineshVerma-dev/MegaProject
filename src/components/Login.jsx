@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useform } from "react-hook-form"
+import { useForm } from "react-hook-form"
 import { Link, useNavigate } from 'react-router-dom'
 import { login as authLogin } from "../store/authSlice"
 import { Button, Input, Logo } from "./index"
@@ -10,7 +10,7 @@ import authservice from '../appwrite/auth'
 function Login() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const { register, handleSubmit } = useform()
+    const { register, handleSubmit } = useForm()
     const [error, setError] = useState("")
 
     const login = async (data) => {
