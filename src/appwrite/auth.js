@@ -11,19 +11,33 @@ export class AuthService {
         this.account = new Account(this.Client);
     }
 
+    // async createAccount({ email, password, name }) {
+    //     try {
+    //         const userAccount = await this.account.create(ID.unique(), email, password, name)
+    //         if (userAccount) {
+
+    //             return this.LogIn({ email, password })
+    //         } else {
+    //             return userAccount;
+    //         }
+    //     } catch (error) {
+    //         throw error;
+    //     }
+    // }
+
     async createAccount({ email, password, name }) {
         try {
             const userAccount = await this.account.create(ID.unique(), email, password, name)
             if (userAccount) {
-
-                return this.LogIn({ email, password })
+                return this.LogIn({ email, password }); // Automatically login after account creation
             } else {
-                return userAccount;
+                throw new Error("Account creation failed");
             }
         } catch (error) {
             throw error;
         }
     }
+
 
 
     async LogIn({ email, password }) {
@@ -36,7 +50,7 @@ export class AuthService {
 
     async getCurrentUser() {
         try {
-            await this.account.get();
+            return await this.account.get();
         } catch (error) {
             throw error;
         }

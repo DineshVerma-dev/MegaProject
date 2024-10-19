@@ -14,9 +14,9 @@ export class Service {
         this.bucket = new Storage(this.Client)
     }
 
-    async createPost({ title, slug, content, featuredImage, status, userId }) {
+    async createPost({title, slug, content, featuredImage, status, userId}){
         try {
-            await this.databases.createDocument(
+            return await this.databases.createDocument(
                 config.appwriteDatabaseID,
                 config.appwriteCollectionID,
                 slug,
@@ -29,62 +29,65 @@ export class Service {
                 }
             )
         } catch (error) {
-            console.log("error in create post :: ", error)
+            console.log("Appwrite serive :: createPost :: error", error);
         }
     }
 
-    async updatePosts(slug , {title ,content ,featuredImage ,status }){
-    try {
-        return await this.databases.updateDocument(
-            config.appwriteDatabaseID,
-            config.appwriteCollectionID,
-            slug,
-            {
-                title,
-                content,
-                featuredImage,
-                status,
-            }
-        )
-    } catch (error) {
-        console.log("error in updatePosts services ::" ,error);
+    
+     
+
+    async updatePosts(slug, { title, content, featuredImage, status }) {
+        try {
+            return await this.databases.updateDocument(
+                config.appwriteDatabaseID,
+                config.appwriteCollectionID,
+                slug,
+                {
+                    title,
+                    content,
+                    featuredImage,
+                    status,
+                }
+            )
+        } catch (error) {
+            console.log("error in updatePosts services ::", error);
+        }
     }
-    }
-   
-    async deletePost(slug){
-        try { 
+
+    async deletePost(slug) {
+        try {
             await this.databases.deleteDocument(
                 config.appwriteDatabaseID,
                 config.appwriteCollectionID,
                 slug
             )
         } catch (error) {
-            console.log("error in deletePosts ::: " ,error)
+            console.log("error in deletePosts ::: ", error)
         }
 
         return true
     }
 
-    async getPost(slug){
+    async getPost(slug) {
         try {
-             return await this.databases.getDocument(
+            return await this.databases.getDocument(
                 config.appwriteDatabaseID,
                 config.appwriteCollectionID,
                 slug
-             )
+            )
         } catch (error) {
-            console.log("Appwrite Getpost ::" ,error);
+            console.log("Appwrite Getpost ::", error);
             return false
         }
     }
 
-    async getPosts(queries = [Query.equal("status", "active")]){
+    async getPosts(queries = [Query.equal("status", "active")]) {
         try {
             return await this.databases.listDocuments(
                 config.appwriteDatabaseID,
                 config.appwriteCollectionID,
                 queries,
-                
+
 
             )
         } catch (error) {
@@ -92,12 +95,12 @@ export class Service {
             return false
         }
     }
-     
 
-    async uploadFile(file){
+
+    async uploadFile(file) {
         try {
             return await this.bucket.createFile(
-                conf.appwriteBucketId,
+                config.appwriteBucketID,
                 ID.unique(),
                 file
             )
@@ -107,10 +110,10 @@ export class Service {
         }
     }
 
-    async deleteFile(fileId){
+    async deleteFile(fileId) {
         try {
             await this.bucket.deleteFile(
-                conf.appwriteBucketId,
+                config.appwriteBucketID,
                 fileId
             )
             return true
@@ -120,9 +123,9 @@ export class Service {
         }
     }
 
-    getFilePreview(fileId){
+    getFilePreview(fileId) {
         return this.bucket.getFilePreview(
-            conf.appwriteBucketId,
+            config.appwriteBucketID,
             fileId
         )
     }
