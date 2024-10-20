@@ -141,50 +141,7 @@ export default function PostForm({ post }) {
     const navigate = useNavigate();
     const userData = useSelector((state) => state.auth.userData);
 
-    // const submit = async (data) => {
-    //     try {
-    //         if (post) {
-    //             const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null;
-
-    //             if (file && post.featuredImage) {
-    //                 await appwriteService.deleteFile(post.featuredImage);
-    //             }
-
-    //             const dbPost = await appwriteService.updatePosts(post.$id, {
-    //                 ...data,
-    //                 featuredImage: file ? file.$id : post.featuredImage,
-    //             });
-
-    //             if (dbPost) {
-    //                 navigate(`/post/${dbPost.$id}`);
-    //             }
-    //         } else {
-    //             const file = await appwriteService.uploadFile(data.image[0]);
-
-    //             if (file) {
-    //                 const fileId = file.$id;
-    //                 data.featuredImage = fileId;
-    //                // const dbPost = await appwriteService.createPost({ ...data, userId: userData.$id });
-
-    //                 const dbPost = await appwriteService.createPost({ 
-    //                     title: data.title, 
-    //                     slug: data.slug, // Use the correct variable 'slug'
-    //                     content: data.content, 
-    //                     featuredImage: data.featuredImage, 
-    //                     status: data.status, 
-    //                     userId: userData.$id 
-    //                 });
-
-    //                 if (dbPost) {
-    //                     navigate(`/post/${dbPost.$id}`);
-    //                 }
-    //             }
-    //         }
-    //     } catch (error) {
-    //         console.error("Error creating/updating post:", error);
-    //         // You can add user feedback for errors here
-    //     }
-    // };
+   
 
     const submit = async (data) => {
         try {
