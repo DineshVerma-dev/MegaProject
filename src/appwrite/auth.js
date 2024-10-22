@@ -11,19 +11,7 @@ export class AuthService {
         this.account = new Account(this.Client);
     }
 
-    // async createAccount({ email, password, name }) {
-    //     try {
-    //         const userAccount = await this.account.create(ID.unique(), email, password, name)
-    //         if (userAccount) {
-
-    //             return this.LogIn({ email, password })
-    //         } else {
-    //             return userAccount;
-    //         }
-    //     } catch (error) {
-    //         throw error;
-    //     }
-    // }
+    
 
     async createAccount({ email, password, name }) {
         try {

@@ -22,7 +22,7 @@ function Home() {
                             Login to read posts
                         </h1>
                     </div>
-                   
+
 
                 </Container>
             </div>
