@@ -84,7 +84,7 @@ export default Loading;
 
 
 
- export const RenderSpinner = () => {
+export const RenderSpinner = () => {
     return (
         <div className="loader">
             <style jsx>{`
@@ -96,6 +96,7 @@ export default Loading;
                     height: 100vh;
                     background: rgba(255, 255, 255, 0.8); /* Semi-transparent overlay */
                     display: flex;
+                    flex-direction: column; /* Stack elements vertically */
                     justify-content: center;
                     align-items: center;
                     z-index: 1000;
@@ -109,7 +110,14 @@ export default Loading;
                     width: 100px;
                     height: 100px;
                     animation: spin 4s linear infinite;
-                    
+                    margin-bottom: 20px; /* Space between spinner and text */
+                }
+
+                /* Text styles for Blog Website */
+                .blog-name {
+                    font-size: 24px;
+                    font-weight: bold;
+                    color: #3498db; /* Matching blue color */
                 }
 
                 @keyframes spin {
@@ -119,6 +127,7 @@ export default Loading;
                 }
             `}</style>
             <div className="spinner"></div>
+            <div className="blog-name ">Blog Website</div>
         </div>
     );
 };
