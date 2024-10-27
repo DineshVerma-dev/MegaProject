@@ -50,8 +50,8 @@ const Loading = () => {
             <style jsx>{`
                 .loader {
                     position: fixed;
-                    top: 1rem;
-                    right: 1rem;
+                    top: 5rem;
+                    right: 3rem;
                     display: flex;
                     justify-content: center;
                     align-items: center;
