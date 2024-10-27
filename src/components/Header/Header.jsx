@@ -153,7 +153,7 @@ function Header() {
                         onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
                     >
                         {/* Hamburger Icon */}
-                        <img src="./profile.svg" alt="Menu" className="h-6 w-6" />
+                        <img src="./profile.svg" alt="Menu" className="h-7 w-7" />
                     </button>
 
                     {/* Desktop Navigation */}
