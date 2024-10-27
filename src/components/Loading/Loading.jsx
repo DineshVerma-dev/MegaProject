@@ -108,7 +108,7 @@ export default Loading;
                     border-radius: 50%;
                     width: 100px;
                     height: 100px;
-                    animation: spin 3s linear infinite;
+                    animation: spin 4s linear infinite;
                     
                 }
 
