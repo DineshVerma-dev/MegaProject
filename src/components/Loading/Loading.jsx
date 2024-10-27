@@ -87,7 +87,7 @@ export default Loading;
 export const RenderSpinner = () => {
     return (
         <div className="loader">
-            <style jsx>{`
+            <style >{`
                 .loader {
                     position: fixed;
                     top: 0;
